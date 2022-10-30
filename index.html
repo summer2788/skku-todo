@@ -59,7 +59,21 @@
         let button = document.querySelector("#add");
 
         button.addEventListener("click", () => {
-            console.log('Clicked!');
+            // 1. Read the text in #task-input.
+            let input = document.querySelector("#task-input");
+            let task = input.value;
+            if (!task.length) return;
+
+            //2. Append the text to #todo-list.
+            let newTask = document.createElement("div");
+            newTask.classList.add("task", "bg-light", "p-1", "rounded-2", "ps-2");
+            newTask.textContent = task;
+
+            let todoList = document.querySelector("#todo-list");
+            todoList.appendChild(newTask);
+
+            //3. Clear #task-input.
+            input.value = "";
         })
 
 
